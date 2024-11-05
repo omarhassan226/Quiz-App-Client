@@ -1,0 +1,29 @@
+.quiz-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.quiz-card {
+    /* min-width: 200px; */
+    max-width: 100%;
+    width: 100%;
+}
+
+.button {
+    background: linear-gradient(to left, #aae2ee, #005f8d);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.6s ease;
+}
+
+.button:hover {
+    background: linear-gradient(to right,
+            #aae2ee,
+            #005f8d);
+}
