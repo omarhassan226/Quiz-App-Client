@@ -33,7 +33,7 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setLoading(true);
         setError(null);
         try {
-            const response = await axios.get('http://localhost:5000/api/exams');
+            const response = await axios.get('https://quiz-app-server1.vercel.app/api/exams');
             setQuizzes(response.data.data);
         } catch (error) {
             setError("Error fetching quizzes.");
@@ -46,7 +46,7 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setLoading(true);
         setError(null);
         try {
-            const response = await axios.post('http://localhost:5000/api/exam', quiz);
+            const response = await axios.post('https://quiz-app-server1.vercel.app/api/exam', quiz);
             setQuizzes((prev) => [...prev, response.data.data]);
             toast.success('Quiz Added Successfully...')
         } catch (error) {
@@ -60,7 +60,7 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setLoading(true);
         setError(null);
         try {
-            const response = await axios.patch(`http://localhost:5000/api/exam/${id}`, updatedQuiz);
+            const response = await axios.patch(`https://quiz-app-server1.vercel.app/api/exam/${id}`, updatedQuiz);
 
             setQuizzes((prev) =>
                 prev.map((quiz) => (quiz._id === id ? response.data.data : quiz))
@@ -77,7 +77,7 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setLoading(true);
         setError(null);
         try {
-            await axios.delete(`http://localhost:5000/api/exam/${id}`);
+            await axios.delete(`https://quiz-app-server1.vercel.app/api/exam/${id}`);
             setQuizzes((prev) => prev.filter((quiz) => quiz._id !== id));
             toast.error('Announcement deleted successfully...')
         } catch (error) {

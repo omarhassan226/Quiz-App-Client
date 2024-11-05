@@ -47,7 +47,7 @@ export const AnnouncementProvider: React.FC<{ children: React.ReactNode }> = ({ 
         setLoading(true);
         setError(null);
         try {
-            const response = await axios.post('http://localhost:5000/api/announcement', announcement);
+            const response = await axios.post('https://quiz-app-server1.vercel.app/api/announcement', announcement);
             setAnnouncements(prev => [...prev, response.data.data]);
             toast.success('Announcement Added Successfully...')
         } catch (error) {
@@ -61,7 +61,7 @@ export const AnnouncementProvider: React.FC<{ children: React.ReactNode }> = ({ 
         setLoading(true);
         setError(null);
         try {
-            const response = await axios.patch(`http://localhost:5000/api/announcement/${id}`, updatedAnnouncement);
+            const response = await axios.patch(`https://quiz-app-server1.vercel.app//api/announcement/${id}`, updatedAnnouncement);
             setAnnouncements(prev => prev.map(announcement => (announcement._id === id ? response.data.data : announcement)));
             toast.info('Announcement updated successfully...')
         } catch (error) {
@@ -75,7 +75,7 @@ export const AnnouncementProvider: React.FC<{ children: React.ReactNode }> = ({ 
         setLoading(true);
         setError(null);
         try {
-            await axios.delete(`http://localhost:5000/api/announcement/${id}`);
+            await axios.delete(`https://quiz-app-server1.vercel.app//api/announcement/${id}`);
             setAnnouncements(prev => prev.filter(announcement => announcement._id !== id));
             toast.error('Announcement deleted successfully...')
         } catch (error) {
@@ -89,7 +89,7 @@ export const AnnouncementProvider: React.FC<{ children: React.ReactNode }> = ({ 
         setLoading(true);
         setError(null);
         try {
-            await axios.delete('http://localhost:5000/api/announcement');
+            await axios.delete('https://quiz-app-server1.vercel.app//api/announcement');
             setAnnouncements([]);
         } catch (error) {
             setError("Error deleting all announcements.");
